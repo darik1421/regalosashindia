@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #2c2c2c;
+  --secondary-color: #4a4a4a;
+  --text-color: #1a1a1a;
+  --accent-color: #6c6c6c;
+  --background-color: #333333;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 1s ease-out;
+}
+
+.welcome-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.welcome-content {
+  text-align: center;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome-content h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2em, 5vw, 3em);
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.open-button {
+  padding: clamp(0.8rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1em, 3vw, 1.2em);
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid var(--accent-color);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.open-button:hover {
+  transform: translateY(-3px);
+  background-color: var(--accent-color);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1em;
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.back-button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateX(-3px);
+}
+
+.gift-card {
+  width: 100%;
+  max-width: 600px;
+  background: var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin: 1rem;
+  position: relative;
+  color: white;
+}
+
+.gift-card.hidden {
+  display: none;
+}
+
+.gift-card.show {
+  display: block;
+}
+
+.gift-content {
+  text-align: center;
+}
+
+.gift-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2em, 6vw, 2.5em);
+  color: white;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gift-message {
+  margin: 2rem 0;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.message-text {
+  font-size: clamp(1em, 4vw, 1.2em);
+  color: #e0e0e0;
+  line-height: 2.5;
+  white-space: pre-line;
+  opacity: 0;
+  transform: translateY(20px);
+  margin: 0 auto;
+  max-width: 90%;
+  position: relative;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent calc(2.5em - 1px),
+    rgba(255, 255, 255, 0.1) calc(2.5em - 1px),
+    rgba(255, 255, 255, 0.1) 2.5em
+  );
+  padding: 0.75em 0;
+}
+
+.message-text::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.message-text.slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.character-image-top,
+.character-image-bottom {
+  height: clamp(150px, 40vw, 250px);
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.character-image-top img,
+.character-image-bottom img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+@media (max-width: 768px) {
+  .gift-card {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .message-grid {
+    gap: 0.5rem;
+  }
+
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9em;
+  }
+}
