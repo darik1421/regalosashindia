@@ -16,35 +16,38 @@ function App() {
     <>
       <div className={`welcome-screen ${isOpen ? 'fade-out' : ''}`}>
         <div className="welcome-content">
-          <h1>¡Un regalo especial para ti!</h1>
+          <h1>¡Feliz cumpleaños Sashaaa!</h1>
           <button onClick={handleOpen} className="open-button">Abrir Regalo</button>
         </div>
       </div>
 
-      <div className={`gift-card ${isOpen ? 'show fade-in' : 'hidden'}`}>
-        <button onClick={handleBack} className="back-button">
-          ← Volver
-        </button>
-        
-        <div className="gift-content">
-          <div className="character-image-top">
-            {/* Aquí irá la imagen superior */}
-          </div>
-          
-          <h1 className="gift-title">¡Para alguien muy especial!</h1>
-          
-          <div className="gift-message">
-            <h2>Querida Amiga</h2>
-            <p className="message-text slide-in">
-              Aquí puedes escribir tu mensaje personalizado...
-            </p>
-          </div>
+      {isOpen && (
+        <>
+          <button onClick={handleBack} className="back-button">
+            ← Volver
+          </button>
+          <div className={`gift-card show fade-in`}>
+            <div className="gift-content">
+              <div className="character-image-top">
+                {/* Aquí irá la imagen superior */}
+              </div>
+              
+              <h1 className="gift-title">¡Para alguien muy especial!</h1>
+              
+              <div className="gift-message">
+                <h2>Querida Amiga</h2>
+                <p className="message-text slide-in">
+                  Aquí puedes escribir tu mensaje personalizado...
+                </p>
+              </div>
 
-          <div className="character-image-bottom">
-            {/* Aquí irá la imagen inferior */}
+              <div className="character-image-bottom">
+                {/* Aquí irá la imagen inferior */}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      )}
     </>
   )
 }
